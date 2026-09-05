@@ -1,0 +1,34 @@
+import { Poppins } from "next/font/google";
+import "./globals.css";
+import NavBar from "@/Components/Share/NavBar";
+import { Toaster } from "react-hot-toast";
+import Footer from "@/Components/Share/Footer";
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+export const metadata = {
+  title: "ArtHub",
+  description: "ArtHub is ",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html
+      lang="en"
+      className={`${poppins.className} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">
+        <NavBar/>
+        <main>
+          {children}
+        </main>
+        <Footer/>
+        <Toaster />
+        </body>
+    </html>
+  );
+}
